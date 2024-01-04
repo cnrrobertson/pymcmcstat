@@ -140,7 +140,7 @@ def plot_intervals(intervals, time, ydata=None, xdata=None,
                    data_display={}, model_display={}, interval_display={},
                    fig=None, figsize=None, legloc='upper left',
                    ciset=None, piset=None,
-                   return_settings=False):
+                   return_settings=False, ax=None):
     '''
     Plot propagation intervals in 2-D
 
@@ -238,7 +238,10 @@ def plot_intervals(intervals, time, ydata=None, xdata=None,
     piset['labels'] = _setup_labels(piset['limits'], inttype='PI')
     if fig is None:
         fig = plt.figure(figsize=figsize)
-    ax = fig.gca()
+    if ax == None:
+        ax = fig.gca()
+    else:
+        ax = ax
     time = time.reshape(time.size,)
     # add prediction intervals
     if addprediction is True:
