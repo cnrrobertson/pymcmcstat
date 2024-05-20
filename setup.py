@@ -6,13 +6,13 @@ import re
 def read(fname):
     with codecs.open(fname, 'r', 'latin') as f:
         return f.read()
-    
+
 # read the contents of your README file
 from os import path
 this_directory = path.abspath(path.dirname(__file__))
 with codecs.open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
-    
+
 
 def get_version():
     VERSIONFILE = os.path.join('pymcmcstat', '__init__.py')
@@ -38,7 +38,7 @@ setup(
     package_dir={'pymcmcstat': 'pymcmcstat'},
     packages=find_packages(),
     zip_safe=False,
-    install_requires=['numpy>=1.14', 'scipy>=1.0', 'mcmcplot>=1.0.1',
+    install_requires=['numpy>=1.14', 'scipy>=1.0', 'mcmcplot @ git+https://github.com/cnrrobertson/mcmcplot',
                       'h5py>=2.7.0', 'statsmodels>=0.9.0', 'deprecated>=1.2.6'],
     extras_require = {'docs':['sphinx'], 'plotting':['matplotlib', 'seaborn'],},
     classifiers=['License :: OSI Approved :: MIT License',
